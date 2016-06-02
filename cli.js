@@ -27,7 +27,7 @@ const cli = meow([`
 // --foo  Lorem ipsum. [Default: false]
 
 Promise.try(() => ghauth(authOptions))
-  .then((authData) => githubTaskStatus(cli.input[0], cli.flags, authData.token))
+  .then((authData) => githubTaskStatus(cli.input, cli.flags, authData.token))
   .then((response) => {
     console.log(response)
   })
