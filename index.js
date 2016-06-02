@@ -33,10 +33,19 @@ module.exports = function (org, opts, token) {
     .then((res) => res.body.split('\n'))
     .map((body) => {
       var checkEmpty = emptyCheck.exec(body)
-      if (checkEmpty && checkEmpty.index === 0) done += 1
-      var checkFileld = filledCheck.exec(body)
-      if (checkFileld && checkFileld.index === 0) undone += 1
-      }).then(() => {
-      return {done: done, undone: undone}
+      if (checkEmpty && checkEmpty.index === 0) {
+        undone += 1
+      }
+      var checkFilled = filledCheck.exec(body)
+      if (checkFilled && checkFilled.index === 0) {
+        done += 1
+      }
+    }).then(() => {
+      return {
+        done: done,
+        undone: undone,
+        progressio: 'http://progressed.io/bar/' + Math.round(done / (done + undone) * 100),
+        progressioTitle: 'http://progressed.io/bar/' + Math.round(done / (done + undone) * 100) + `?title=${done}/${undone + done}`
+      }
     })
-  }
+}
