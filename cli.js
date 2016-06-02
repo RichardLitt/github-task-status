@@ -6,9 +6,9 @@ const githubTaskStatus = require('./')
 const Promise = require('bluebird')
 const ghauth = Promise.promisify(require('ghauth'))
 const authOptions = {
-  configName: 'ghIssueCommenters',
-  note: 'Get GitHub issue commenters',
-  userAgent: 'ghIssueCommenters',
+  configName: 'ghTaskStatus',
+  note: 'Get GitHub task status',
+  userAgent: 'ghTaskStatus',
   scope: ['repo']
 }
 
@@ -16,20 +16,18 @@ const cli = meow([`
   Usage
     $ github-task-status [input]
 
-  Options
-    --foo  Lorem ipsum. [Default: false]
-
   Examples
-    $ github-task-status
-    unicorns & rainbows
-    $ github-task-status ponies
-    ponies & rainbows
+    $ github-task-status https://api.github.com/repos/RichardLitt/github-task-status/issues/1
+    {done: 6, undone: 1}
 `, {
   alias: {}
 }])
 
-Promise.try(() => ghauth(authOptions)})
-.then((authData) => githubTaskStatus(cli.input[0], cli.flags, authData.token)})
-.map((response) => {
-  console.log(response)
-})
+// Options
+// --foo  Lorem ipsum. [Default: false]
+
+Promise.try(() => ghauth(authOptions))
+  .then((authData) => githubTaskStatus(cli.input[0], cli.flags, authData.token))
+  .then((response) => {
+    console.log(response)
+  })
