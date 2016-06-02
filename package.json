@@ -1,0 +1,42 @@
+{
+  "name": "github-task-status",
+  "version": "0.0.0",
+  "description": "Check the status of a GitHub issue tasklist",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RIchardLitt/github-task-status.git"
+  },
+  "homepage": "https://github.com/RIchardLitt/github-task-status",
+  "bugs": "https://github.com/RIchardLitt/github-task-status/issues",
+  "author": {
+    "name": "Richard Littauer",
+    "email": "richard.littauer@gmail.com",
+    "url": "burntfen.com"
+  },
+  "bin": "cli.js",
+  "scripts": {
+  	"lint": "standard",
+    "test": "standard && ava"
+  },
+  "keywords": [
+    "tasks,",
+    "github,",
+    "checkmarks,",
+    "status,",
+    "badge,",
+    "git,",
+    "to",
+    "do",
+    "cli-app",
+    "cli",
+    ""
+  ],
+  "dependencies": {
+    "meow": "^3.6.0"
+  },
+  "devDependencies": {
+    "standard": "^5.4.1",
+    "ava": "^0.9.1"
+  }
+}
