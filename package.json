@@ -1,6 +1,6 @@
 {
   "name": "github-task-status",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Check the status of a GitHub issue tasklist",
   "license": "MIT",
   "repository": {
@@ -41,5 +41,9 @@
   "devDependencies": {
     "standard": "^7.1.1",
     "ava": "^0.15.1"
-  }
+  },
+  "coordinates": [
+    41.1473247,
+    -8.6158428
+  ]
 }
