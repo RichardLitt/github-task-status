@@ -16,11 +16,14 @@ const cli = meow([`
   Usage
     $ github-task-status [input]
 
+  Options
+    -s, --sublists  Check for sublists, too
+
   Examples
     $ github-task-status https://api.github.com/repos/RichardLitt/github-task-status/issues/1
     {done: 6, undone: 1}
 `, {
-  alias: {}
+  alias: {s: 'sublists'}
 }])
 
 // Options

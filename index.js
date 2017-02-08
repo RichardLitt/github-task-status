@@ -5,7 +5,7 @@ var octo
 const Promise = require('bluebird')
 // const depaginate = require('depaginate')
 // const getGithubUser = require('get-github-user')
-// For sublists: /^[ ]*- \[ \]/
+// const subLists = /^[ ]*- \[ \]/
 const emptyCheck = /- \[ \]/
 const filledCheck = /- \[x\]/
 
@@ -37,6 +37,7 @@ module.exports = function (url, opts, token) {
   .map((res) => {
     var done = 0
     var undone = 0
+    // var subLists = 0
 
     return Promise.each(res.body, (line) => {
       var checkEmpty = emptyCheck.exec(line)
@@ -47,6 +48,13 @@ module.exports = function (url, opts, token) {
       if (checkFilled && checkFilled.index === 0) {
         done += 1
       }
+
+      // if (opts.subLists) {
+      //   var checkSubLists = subLists.exec(line)
+      //   if (checkSubLists && checkSubLists.index === 0) {
+      //     subLists += 1
+      //   }
+      // }
     }).then(() => {
       return {
         url: res.url,
