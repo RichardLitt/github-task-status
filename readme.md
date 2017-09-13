@@ -1,5 +1,7 @@
 # github-task-status [![Build Status](https://travis-ci.org/RIchardLitt/github-task-status.svg?branch=master)](https://travis-ci.org/RIchardLitt/github-task-status)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/RichardLitt/github-task-status.svg)](https://greenkeeper.io/)
+
 > Check the status of a GitHub issue tasklist
 
 
