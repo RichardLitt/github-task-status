@@ -19,9 +19,9 @@ const cli = meow([`
   Examples
     $ github-task-status https://api.github.com/repos/RichardLitt/github-task-status/issues/1
     {done: 6, undone: 1}
-`, {
+`], {
   alias: {}
-}])
+})
 
 // Options
 // --foo  Lorem ipsum. [Default: false]
